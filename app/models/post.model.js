@@ -9,7 +9,7 @@ const postSchema = new mongoose.Schema({
         type: String, 
         required: true
     },
-    commentDateTime : {
+    timestamp : {
         type: String, 
         required: true
     }
