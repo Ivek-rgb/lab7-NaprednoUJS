@@ -3,6 +3,6 @@ node_modules/*
 
 public/* 
 
-!.gitkeep 
-
 .env
+
+!.gitkeep 

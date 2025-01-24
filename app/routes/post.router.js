@@ -40,7 +40,7 @@ postRouter.route('/:id')
           .get(authenticateToken, getPostById, async (req, res) => {
                 res.json(res.post); 
           })
-          .patch(authenticateToken,   async (req, res) => {
+          .patch(authenticateToken, async (req, res) => {
                 try{
 
                     const updatedBody = extractPostData(req); 
