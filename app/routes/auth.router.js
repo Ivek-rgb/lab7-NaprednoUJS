@@ -1,5 +1,4 @@
 import express from 'express';
-import crypto from 'crypto';
 import bcrypt from 'bcrypt'; 
 import jwt from 'jsonwebtoken';
 import User from '../models/user.model.js'; 
@@ -48,6 +47,7 @@ authRouter.post('/register', async (req, res) => {
     try{
         users = await User.find({username : tmpUserContainer.username}); 
     }catch(error){
+        console.log(error); 
         res.status(500).json({message: error.message}); 
         return; 
     }

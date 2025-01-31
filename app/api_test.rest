@@ -1,1 +1,6 @@
-GET http://localhost:8081/users/678ec11e55424680d74f968d
+
+
+	
+POST https://moj.tvz.hr/index.php?studij=rac&link=predmet/148934
+TVZ:"MOJa111fcb7-93f9-48a1-af7b-1176b8e45950"
+microsoft-login: ""
