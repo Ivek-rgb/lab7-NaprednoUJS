@@ -1,0 +1,31 @@
+
+<div class="p-5">
+
+  <app-account-info></app-account-info>
+  <div class="d-flex flex-row w-100">
+    <div class="w-75">
+      <div class="w-75 align-content-center p-3" style="border: 1px solid #F0F0F0; border-radius: 30px;">
+        <p style="font-weight: normal;">Posts by {{username}} ({{getNumberOfForumPosts()}})</p>
+        <div class="comment-container">
+          <div *ngFor="let comment of listOfPosts; index as i" class="d-flex flex-column p-4 mt-3 bg-light rounded">
+            <p>By {{comment.userId}} at {{comment.timestamp}}</p>
+            <p>{{comment.comment}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-25 p-3">
+      <p>User data:</p>
+      <p class="mb-1 mt-3">Username: {{username}}</p>
+      <p class="my-1">E-mail: {{email}}</p>
+      <p class="my-1">Name: {{name}}</p>
+    </div>
+
+  </div>
+  <div class="mt-5">
+    <a href="" class="p-3">Back</a>
+  </div>
+
+</div>
+

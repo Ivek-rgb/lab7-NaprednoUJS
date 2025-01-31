@@ -1,0 +1,40 @@
+<div>
+  <form [formGroup]="registerForm" class="p-5 w-50">
+    <div class="d-flex flex-column">
+      <h1>Register form: </h1>
+      <label for="username">Username:</label>
+      <div *ngIf="errorCheck('username')">
+        <small>{{getErrorMessage('username')}}</small>
+      </div>
+      <input class="form-control" type="text" name="username" id="username" formControlName="username" placeholder="Username">
+      <label for="password">Password:</label>
+      <div *ngIf="errorCheck('password')">
+        <small>{{getErrorMessage('password')}}</small>
+      </div>
+      <input class="form-control" type="password" name="password" id="password" formControlName="password" placeholder="Password">
+      <label for="passwordag">Password:</label>
+      <div *ngIf="errorCheck('passwordag')">
+        <small>{{getErrorMessage('passwordag')}}</small>
+      </div>
+      <input class="form-control" type="password" name="passwordag" id="passwordag" formControlName="passwordag" placeholder="Password Again">
+      <label for="name">Name:</label>
+      <div *ngIf="errorCheck('name')">
+        <small>{{getErrorMessage('name')}}</small>
+      </div>
+      <input class="form-control" type="text" name="name" id="name" formControlName="name" placeholder="Name">
+      <label for="name">Email:</label>
+      <div *ngIf="errorCheck('email')">
+        <small>{{getErrorMessage('email')}}</small>
+      </div>
+      <input class="form-control" type="text" name="email" id="email" formControlName="email" placeholder="E-mail">
+
+      <div class="d-flex mt-3 justify-content-between">
+        <button [disabled]="this.registerForm.invalid" class="btn btn-primary w-25" style="background-color: green; border:none;" (click)="onSubmit()">Register!</button>
+      </div>
+    </div>
+    <a href="/auth" class="my-3">Return back to login!</a>
+    <div class="p-3 my-2 w-100" *ngIf='currStatus != 1' [style]="currStatus == 0 ? successStyle : errorStyle">
+      <p>{{ statusEnum[currStatus] }}</p>
+    </div>
+  </form>
+</div>

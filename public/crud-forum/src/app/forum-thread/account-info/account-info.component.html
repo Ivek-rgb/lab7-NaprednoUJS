@@ -1,0 +1,5 @@
+
+<div class="w-100 d-flex p-4 align-content-center" *ngIf="username  != null">
+  <p class="my-auto">Welcome <a [href]='"profile"'>{{ username }}</a> ({{email}})</p>
+  <button class="btn w-5 mx-2" style="color: white; background-color:darkred;" (click)="logUserOut()">Logout</button>
+</div>

@@ -1,0 +1,22 @@
+<div>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()"  class="p-5" >
+    <div class="d-flex flex-column w-50">
+      <h1>Login form: </h1>
+      <label for="username">Username:</label>
+      <div *ngIf="errorCheck('username')">
+        <small>{{getErrorMessage('username')}}</small>
+      </div>
+      <input class="form-control" type="text" name="username" id="username" formControlName="username" placeholder="Username">
+      <label for="password">Password:</label>
+      <div *ngIf="errorCheck('password')">
+        <small>{{getErrorMessage('password')}}</small>
+      </div>
+      <input class="form-control" type="password" name="password" id="password" formControlName="password" placeholder="Password">
+      <div class="d-flex mt-3 justify-content-between">
+        <button type="submit"  class="btn btn-primary w-25" style="background-color: green; border:none;" (keyup.enter)="onSubmit()" (click)="onSubmit(); $event.preventDefault()">Login!</button>
+        <button type="button" class="btn w-25" style="background-color: goldenrod; border:none; color:white;" (click)="onRedirectRegister(); $event.preventDefault()">Register!</button>
+      </div>
+      <p class="mt-5 p-3" style="color:darkred; background-color:rosybrown; border-radius:5px;" *ngIf="errorMessage.length">{{ errorMessage }}</p>
+    </div>
+  </form>
+</div>

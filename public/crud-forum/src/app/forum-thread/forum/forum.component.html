@@ -1,0 +1,32 @@
+<div>
+  <div class="main-forum-part">
+
+    <div class="w-75 align-content-center p-3 m-2" style="border: 1px solid #F0F0F0; border-radius: 30px;">
+      <app-account-info></app-account-info>
+      <h3 style="font-weight: normal;">Posts ({{getNumberOfForumPosts()}})</h3>
+      <div class="comment-container">
+        <div *ngFor="let comment of recordedPosts; index as i" class="d-flex flex-column p-4 mt-3 bg-light rounded">
+          <p>By <b>{{comment.userId}}</b> at {{comment.timestamp}}</p>
+            <p *ngIf="!checkEditByIdx(i)">{{comment.comment}}</p>
+            <textarea *ngIf="checkEditByIdx(i)" rows="5" id="commentBox" class="mb-2" [(ngModel)]="editTextAreaVal" >{{comment.comment}}</textarea>
+            <div *ngIf="comment.userId === username">
+              <button class="btn btn-secondary col-lg-1" (click)="deleteCommentByIdx(i)" style="background-color:brown; border:none;">Delete</button>
+              <button [disabled]="!editTextAreaVal.length && checkEditByIdx(i)" class="btn btn-secondary col-lg-1 mx-3" (click)="setEditByIdx(i, $event)" style="background-color:dodgerblue; border:none;">{{ currEdit === i ? "Save" : "Edit"}}</button>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-50 align-content-center p-3">
+      <h3 style="font-weight: normal;">Add comments:</h3>
+      <form action="*" class="justif-content-center d-flex flex-column" (ngSubmit)="formSubmit($event)">
+        <p><b>User:</b></p>
+        <input type="text" class="form-control" name="userName" [value]="username" disabled="true">
+        <p><b>Comment:</b></p>
+        <textarea [(ngModel)]="textAreaValue" name="commentValue" rows="10" id="commentBox" class="mb-5 form-control" ></textarea>
+        <button class="btn w-25 text-white" [disabled]="checkForSend()" [style.background-color]="checkForColorOfButton()">Send it!</button>
+      </form>
+    </div>
+
+  </div>
+</div>
